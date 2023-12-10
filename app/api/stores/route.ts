@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { auth } from '@clerk/nextjs'
 // import { supabase } from '@/lib/supabasedb'
 
-import prisma from '@/lib/prismadb'
+import prismadb from '@/lib/prismadb'
 
 export async function POST (
   req: Request
@@ -38,7 +38,7 @@ export async function POST (
     //   ])
     //   .select()
 
-    const store = await prisma.store.create({
+    const store = await prismadb.store.create({
       data: {
         name,
         userId

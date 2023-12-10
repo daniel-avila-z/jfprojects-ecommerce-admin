@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import prisma from '@/lib/prismadb'
+import prismadb from '@/lib/prismadb'
 import { auth } from '@clerk/nextjs'
 
 export async function PATCH (
@@ -22,7 +22,7 @@ export async function PATCH (
       return new NextResponse('Store id is required', { status: 400 })
     }
 
-    const store = await prisma.store.updateMany({
+    const store = await prismadb.store.updateMany({
       where: {
         id: params.storeId,
         userId
@@ -54,7 +54,7 @@ export async function DELETE (
       return new NextResponse('Store id is required', { status: 400 })
     }
 
-    const store = await prisma.store.deleteMany({
+    const store = await prismadb.store.deleteMany({
       where: {
         id: params.storeId,
         userId

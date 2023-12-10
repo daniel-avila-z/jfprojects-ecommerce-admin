@@ -2,7 +2,7 @@ import { UserButton, auth } from '@clerk/nextjs'
 import { MainNav } from '@/components/main-nav'
 import StoreSwitcher from '@/components/store-switcher'
 import { redirect } from 'next/navigation'
-import prisma from '@/lib/prismadb'
+import prismadb from '@/lib/prismadb'
 
 const Navbar = async () => {
   const { userId } = auth()
@@ -11,7 +11,7 @@ const Navbar = async () => {
     redirect('/sing-in')
   }
 
-  const stores = await prisma.store.findMany({
+  const stores = await prismadb.store.findMany({
     where: {
       userId
     }

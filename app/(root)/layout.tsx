@@ -1,6 +1,6 @@
 import { auth } from '@clerk/nextjs'
 import { redirect } from 'next/navigation'
-import prisma from '@/lib/prismadb'
+import prismadb from '@/lib/prismadb'
 
 export default async function SetupLayout ({
   children
@@ -14,7 +14,7 @@ export default async function SetupLayout ({
     redirect('/sign-in')
   }
 
-  const store = await prisma.store.findFirst({
+  const store = await prismadb.store.findFirst({
     where: {
       userId
     }
